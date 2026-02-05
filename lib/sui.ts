@@ -111,8 +111,9 @@ export async function fetchWalletStats(
       }
     }
 
-    if (tx.input?.transactions) {
-      for (const input of tx.input.transactions) {
+    const inputTxs = (tx as unknown as { input?: { transactions?: Array<any> } }).input?.transactions;
+    if (inputTxs) {
+      for (const input of inputTxs) {
         if (input?.MoveCall?.package) {
           packagesTouched.push(input.MoveCall.package);
         }
