@@ -1,4 +1,4 @@
-import { SuiClient, getFullnodeUrl } from '@mysten/sui.js/client';
+import { SuiClient, getFullnodeUrl } from '@mysten/sui/client';
 import { emptyStats, WalletStats } from './scoring';
 
 export type ProtocolConfig = {
