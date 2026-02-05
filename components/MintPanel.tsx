@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useCurrentAccount, useSignAndExecuteTransactionBlock } from '@mysten/dapp-kit';
-import { TransactionBlock } from '@mysten/sui/transactions';
+import { TransactionBlock } from '@mysten/sui.js/transactions';
 import { MINT_PRICE_SUI, SUICRED_MINT_FUNCTION, SUICRED_MODULE, SUICRED_PACKAGE_ID } from '@/lib/config';
 import { ScoreResult } from '@/lib/scoring';
 
