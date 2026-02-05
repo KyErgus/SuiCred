@@ -30,7 +30,8 @@ export function MintPanel({ score }: { score: ScoreResult }) {
     });
 
     const result = await signAndExecute({
-      transactionBlock: tx,
+      // dapp-kit bundles its own sui.js copy; cast to avoid type mismatch in build.
+      transactionBlock: tx as unknown as Parameters<typeof signAndExecute>[0]['transactionBlock'],
       options: { showEffects: true }
     });
 
