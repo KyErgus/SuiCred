@@ -2,6 +2,7 @@ module suicred::suicred {
     use sui::coin::{Self, Coin};
     use sui::display;
     use sui::object::{Self, UID};
+    use sui::package;
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use std::string;
@@ -18,8 +19,8 @@ module suicred::suicred {
         image_url: vector<u8>
     }
 
-    public entry fun init_display(ctx: &mut TxContext) {
-        let d = display::new<SuiCredBadge>(ctx);
+    public entry fun init_display(pub: &package::Publisher, ctx: &mut TxContext) {
+        let d = display::new<SuiCredBadge>(pub, ctx);
         display::add(&mut d, string::utf8(b"name"), string::utf8(b"{name}"));
         display::add(&mut d, string::utf8(b"description"), string::utf8(b"{description}"));
         display::add(&mut d, string::utf8(b"image_url"), string::utf8(b"{image_url}"));
