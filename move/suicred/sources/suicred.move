@@ -1,5 +1,6 @@
 module suicred::suicred {
     use sui::coin::{Self, Coin};
+    use sui::display;
     use sui::object::{Self, UID};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
@@ -14,6 +15,17 @@ module suicred::suicred {
         name: vector<u8>,
         description: vector<u8>,
         image_url: vector<u8>
+    }
+
+    public entry fun init_display(ctx: &mut TxContext) {
+        let mut d = display::new<SuiCredBadge>(ctx);
+        display::add(&mut d, b"name", b"{name}");
+        display::add(&mut d, b"description", b"{description}");
+        display::add(&mut d, b"image_url", b"{image_url}");
+        display::add(&mut d, b"score", b"{score}");
+        display::add(&mut d, b"tier", b"{tier}");
+        display::update_version(&mut d);
+        display::share(d);
     }
 
     fun tier_for_score(score: u64): vector<u8> {
