@@ -30,9 +30,9 @@ export function ScoreCard({ score }: { score: ScoreResult }) {
   const displayScore = useCountUp(score.total);
   const tierTone = useMemo(() => {
     switch (score.tier) {
+      case 'Sui':
+        return 'Sui Legendary';
       case 'Diamond':
-        return 'Ultra Rare';
-      case 'Platinum':
         return 'Prime Aura';
       case 'Gold':
         return 'Airdrop Ready';

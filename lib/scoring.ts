@@ -28,7 +28,7 @@ export type ScoreBreakdown = {
 
 export type ScoreResult = {
   total: number;
-  tier: 'Bronze' | 'Silver' | 'Gold' | 'Platinum' | 'Diamond';
+  tier: 'Bronze' | 'Silver' | 'Gold' | 'Diamond' | 'Sui';
   breakdown: ScoreBreakdown[];
   kpis: {
     activityIndex: number;
@@ -41,10 +41,10 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
 const tierFromScore = (score: number): ScoreResult['tier'] => {
-  if (score >= 900) return 'Diamond';
-  if (score >= 780) return 'Platinum';
-  if (score >= 620) return 'Gold';
-  if (score >= 450) return 'Silver';
+  if (score >= 500) return 'Sui';
+  if (score >= 350) return 'Diamond';
+  if (score >= 300) return 'Gold';
+  if (score >= 200) return 'Silver';
   return 'Bronze';
 };
 
