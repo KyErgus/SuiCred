@@ -1,8 +1,8 @@
 export const TREASURY_ADDRESS =
-  '0x82ebab744e4334e71d1f1e4d72768bb56455e1063d9c4d82e8193a034625901b';
+  '0x1a71da3526155ebb27f04bdc4d24a0925ee32d4a5c4600e201ecc0d3776065c3';
 
 // TODO: Replace after publishing Move package
-export const SUICRED_PACKAGE_ID = '0x82ebab744e4334e71d1f1e4d72768bb56455e1063d9c4d82e8193a034625901b';
+export const SUICRED_PACKAGE_ID = '0x1a71da3526155ebb27f04bdc4d24a0925ee32d4a5c4600e201ecc0d3776065c3';
 export const SUICRED_MODULE = 'suicred';
 export const SUICRED_MINT_FUNCTION = 'mint_score';
 
