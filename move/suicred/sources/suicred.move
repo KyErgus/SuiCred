@@ -19,10 +19,10 @@ module suicred::suicred {
         image_url: vector<u8>
     }
 
-    struct SuiCredWitness has drop {}
+    struct SUICRED has drop {}
 
     /// Runs automatically on publish. Creates a Publisher and initializes Display metadata.
-    fun init(witness: SuiCredWitness, ctx: &mut TxContext) {
+    fun init(witness: SUICRED, ctx: &mut TxContext) {
         let pub = package::claim(witness, ctx);
         let d = display::new<SuiCredBadge>(&pub, ctx);
         display::add(&mut d, string::utf8(b"name"), string::utf8(b"{name}"));
