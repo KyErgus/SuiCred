@@ -19,8 +19,12 @@ module suicred::suicred {
         image_url: vector<u8>
     }
 
-    public entry fun init_display(pub: &package::Publisher, ctx: &mut TxContext) {
-        let d = display::new<SuiCredBadge>(pub, ctx);
+    struct SuiCredWitness has drop {}
+
+    /// Runs automatically on publish. Creates a Publisher and initializes Display metadata.
+    fun init(witness: SuiCredWitness, ctx: &mut TxContext) {
+        let pub = package::claim(witness, ctx);
+        let d = display::new<SuiCredBadge>(&pub, ctx);
         display::add(&mut d, string::utf8(b"name"), string::utf8(b"{name}"));
         display::add(&mut d, string::utf8(b"description"), string::utf8(b"{description}"));
         display::add(&mut d, string::utf8(b"image_url"), string::utf8(b"{image_url}"));
@@ -28,6 +32,7 @@ module suicred::suicred {
         display::add(&mut d, string::utf8(b"tier"), string::utf8(b"{tier}"));
         display::update_version(&mut d);
         transfer::public_share_object(d);
+        transfer::public_transfer(pub, tx_context::sender(ctx));
     }
 
     fun tier_for_score(score: u64): vector<u8> {
