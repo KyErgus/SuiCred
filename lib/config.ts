@@ -6,7 +6,7 @@ export const SUICRED_PACKAGE_ID = '0x20e2efc2f475be3527f0b9934154a9f026a016309eb
 export const SUICRED_MODULE = 'suicred';
 export const SUICRED_MINT_FUNCTION = 'mint_score';
 
-export const MINT_PRICE_SUI = 1;
+export const MINT_PRICE_SUI = 0.01;
 
 export const NETWORK = (process.env.NEXT_PUBLIC_SUI_NETWORK || 'mainnet') as
   | 'mainnet'

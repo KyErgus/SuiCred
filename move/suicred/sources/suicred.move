@@ -4,7 +4,7 @@ module suicred::suicred {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
 
-    const PRICE: u64 = 1_000_000_000; // 1 SUI
+    const PRICE: u64 = 10_000_000; // 0.01 SUI
     const TREASURY: address = @0xce5c72750ddcbfbead5c3690c580a7835eab6dacfef98f36cb167fc9f351e87f;
 
     struct SuiCredBadge has key, store {
